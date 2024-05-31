@@ -84,7 +84,7 @@ Inputs
  
 	2: Clouds
  
-  3: Rain
+        3: Rain
   
 	4: Snow
  
