@@ -43,7 +43,7 @@ st.markdown(
         margin-top: 20px;
     }
     body {
-        background-color: #3498db; /* Background color set to blue */
+        background-color: blue; 
     }
     </style>
     """, unsafe_allow_html=True)
