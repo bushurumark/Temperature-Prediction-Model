@@ -37,10 +37,15 @@ st.markdown(
         color: #f39c12;
         margin-top: 20px;
     }
+    .widget-label {
+        color: #ff6347;
+        font-weight: bold;
+    }
     .result {
         color: #27ae60;
         font-size: 30px;
         margin-top: 20px;
+        font-weight: bold;
     }
     .error {
         color: #e74c3c;
