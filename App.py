@@ -60,12 +60,9 @@ rain_1h = st.number_input("Rain", value=0.0)
 snow_1h = st.number_input("Snow", value=0.0)
 clouds_all = st.number_input("Clouds", value=0.0)
 Sun_levels = {0: 'Not Sunny', 1: 'Sunny'}
-options = [f"{key}-{value}" for key, value in Sun_levels.items()]
-selected_option = st.selectbox('Availability of Sun', options)
-is_sun_index = int(selected_option.split('-')[0])
-is_sun = Sun_levels.get(is_sun_index)
+options = list(Sun_levels.values())
+is_sun = st.selectbox('Availability of Sun', options)
 st.write(f'Selected option: {is_sun}')
-
 sunlight_time = st.number_input("Sun Light Time", value=0.0)
 day_length = st.number_input("Day Length", value=0.0)
 sunlight_ratio = st.number_input("Sunlight Time/Day Length", value=0.0)
