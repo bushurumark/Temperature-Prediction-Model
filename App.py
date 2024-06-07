@@ -25,9 +25,13 @@ def predict_temperature(features):
 st.markdown(
     """
     <style>
+    .main {
+        background-color: green;
+    }
     .title {
         color: #4CAF50;
         text-align: center;
+        font-size: 40px;
     }
     .header {
         color: #f39c12;
@@ -35,7 +39,7 @@ st.markdown(
     }
     .result {
         color: #27ae60;
-        font-size: 24px;
+        font-size: 30px;
         margin-top: 20px;
     }
     .error {
