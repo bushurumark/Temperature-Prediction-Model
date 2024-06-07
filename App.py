@@ -21,7 +21,6 @@ model = joblib.load("model.pkl")
 def predict_temperature(features):
     return model.predict([features])[0]
 
-# Streamlit app
 st.markdown(
     """
     <style>
@@ -43,6 +42,9 @@ st.markdown(
         font-size: 24px;
         margin-top: 20px;
     }
+    body {
+        background-color: #3498db; /* Background color set to blue */
+    }
     </style>
     """, unsafe_allow_html=True)
 
@@ -50,20 +52,24 @@ st.markdown("<h1 class='title'>Temperature Prediction App</h1>", unsafe_allow_ht
 st.markdown("<h2 class='header'>Input Parameters</h2>", unsafe_allow_html=True)
 # Define the input fields
 energy_delta = st.number_input("Energy delta[Wh]", value=0.0)
-ghi = st.number_input("GHI", value=0.0)
-pressure = st.number_input("pressure", value=1013.25)
-humidity = st.number_input("humidity", value=50.0)
-wind_speed = st.number_input("wind_speed", value=0.0)
-rain_1h = st.number_input("rain_1h", value=0.0)
-snow_1h = st.number_input("snow_1h", value=0.0)
-clouds_all = st.number_input("clouds_all", value=0.0)
-is_sun = st.selectbox("isSun", [0, 1])
-sunlight_time = st.number_input("sunlightTime", value=0.0)
-day_length = st.number_input("dayLength", value=0.0)
-sunlight_ratio = st.number_input("SunlightTime/daylength", value=0.0)
-weather_type = st.selectbox("weather_type", [1, 2, 3, 4, 5])
-hour = st.number_input("hour", min_value=0, max_value=23, value=0)
-month = st.number_input("month", min_value=1, max_value=12, value=1)
+ghi = st.number_input("Global Horizontal Irradiance", value=0.0)
+pressure = st.number_input("Pressure", value=1013.25)
+humidity = st.number_input("Humidity", value=50.0)
+wind_speed = st.number_input("Wind speed", value=0.0)
+rain_1h = st.number_input("Rain", value=0.0)
+snow_1h = st.number_input("Snow", value=0.0)
+clouds_all = st.number_input("Clouds", value=0.0)
+Sun_levels = {0: 'Not Sunny', 1: 'Sunny'}
+options = [f"{key}-{value}" for key, value in Sun_levels.items()]
+is_sun = st.selectbox('Availability of Sun', options)
+sunlight_time = st.number_input("Sun Light Time", value=0.0)
+day_length = st.number_input("Day Length", value=0.0)
+sunlight_ratio = st.number_input("Sunlight Time/Day Length", value=0.0)
+Type_levels = {1: 'Clear', 2: 'Clouds', 3: 'Rain', 4: 'Snow', 5: 'Other'}
+options = [f"{key}-{value}" for key, value in Type_levels.items()]
+weather_type = st.selectbox('Weather Type', options)
+hour = st.number_input("Hour", min_value=0, max_value=23, value=0)
+month = st.number_input("Month", min_value=1, max_value=12, value=1)
 
 # Prepare the features for prediction
 features = [
