@@ -42,7 +42,7 @@ st.markdown(
         font-weight: bold;
     }
     .result {
-        color: #27ae60;
+        color: purple;
         font-size: 30px;
         margin-top: 20px;
         font-weight: bold;
